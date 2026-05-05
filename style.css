@@ -16,6 +16,7 @@ body {
     padding: 0px 5px 5px 5px;    
         min-width:10vw; 
     min-height:15vh;
+    animation-duration: 3.1s;
 }
 .border:hover{
 background: radial-gradient(rgba(255, 255, 255, 1) 20%, rgba(180, 180, 180, 1) 100%);
@@ -43,4 +44,9 @@ background: radial-gradient(rgba(255, 255, 255, 1) 20%, rgba(180, 180, 180, 1) 1
 }
 .his {
     top: 300px;
+}
+@keyframes opacity {
+    0% {opacity: 100%}
+    20% {opacity: 100%}
+    100% {opacity: 0%}
 }

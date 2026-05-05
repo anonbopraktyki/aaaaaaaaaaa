@@ -228,9 +228,9 @@ function clone(){
 
 
 var rolling = false;
-function balls(wopwomp = 0){
+function balls(wopwomp = 0, e = "asdf"){
     if (rolling) return;
-    if (wopwomp == 1) {fghd(); return;}
+    if (wopwomp != 0) return;
     rolling = true;
  var zadanie = clone();
 zadanie.innerHTML = zadanie.innerHTML.replace("<qwer>", "co bedzie?");
@@ -251,16 +251,44 @@ for (let i = 0; i < 41; i++) {
 /** @param {HTMLElement} zadanie */
 function bsdf(zadanie){
 rolling = false;
-zadanie.onclick = function() {balls(1) };
+zadanie.onclick = function() { balls(1, event) };
 zadanie.innerHTML = zadanie.innerHTML.replace("co bedzie?", "zakoncz zadanie");
 zadanie.querySelector('div').onclick = function() { przejscie(event)};
 }
+    var fgh = false;
 /** @param {MouseEvent} e */
 function przejscie(e) {
+    if (fgh == true && e.target.innerHTML == "wooo"){
+ e.target.innerHTML = "zakoncz zadanie";
+ e.target.parentElement.parentElement.querySelector('h1').style.color = "black";
+ e.target.parentElement.parentElement.querySelector('h1').style.textDecoration = "none";
+  e.target.parentElement.parentElement.style.animationName= "none";
+fgh = false;
+    }
+    else if (fgh == false){
  e.target.innerHTML = "wooo";
  e.target.parentElement.parentElement.querySelector('h1').style.color = "green"  
  e.target.parentElement.parentElement.querySelector('h1').style.textDecoration = "underline";
+ e.target.parentElement.parentElement.style.animationName = "opacity";
+ fgh = true;
+ setTimeout(() => {
+if (fgh == true){
+    e.target.parentElement.parentElement.remove();
+fgh = false;
 }
-function fghd(){
+ }, 3000);
+}}
 
+
+function sfgh(){
+    const now = new Date().toDateString();
+    if (localStorage.getItem("today") != now){
+        localStorage.clear();
+        localStorage.setItem("today", now);
+        window.location.reload();
+    }
+    
+setTimeout(() => {
+        sfgh();
+}, 6000);
 }
