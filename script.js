@@ -14,19 +14,22 @@ div.style.display = "none";
 function start(e){
     e.dataTransfer.setDragImage(div, 0, 0);
     pos = [e.clientX - e.target.parentElement.getBoundingClientRect().left, e.clientY - e.target.parentElement.getBoundingClientRect().top];
-    console.log(e.target.getBoundingClientRect().width);
 }
 
 function clone(){
     var b = document.body.appendChild(document.getElementById("border").cloneNode(true));
+    b.style.left = Math.round(Math.random() * (document.body.getBoundingClientRect().width - b.getBoundingClientRect().width)) + "px";
+    b.style.top = Math.round(Math.random() * (document.body.getBoundingClientRect().height - b.getBoundingClientRect().height)) + "px";
     return b;
 }
 
 
 
 
-
+var rolling = false;
 function balls(){
+    if (rolling) return;
+    rolling = true;
  var zadanie = clone();
  console.log(zadanie.innerHTML);
 
@@ -36,9 +39,16 @@ var b = 50;
 for (let i = 0; i < 41; i++) {
     setTimeout(() => {
         har.innerHTML = i;
+        if (i == 40) bsdf();
     }, b * i);
         var j = i/10;
         b *= Math.pow(1.02, j);
         if (i == 40) b *= 2;
 }
+}
+
+function bsdf(){
+rolling = false;
+
+
 }

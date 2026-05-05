@@ -2,6 +2,8 @@ body {
     margin: 0;
     background-color: dimgray;
     font-family: "Comic Sans MS";
+    width: 100vw;
+    height: 100vh;
 }
 .border {
     background-color: white;
