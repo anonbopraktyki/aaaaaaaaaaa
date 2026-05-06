@@ -227,3 +227,15 @@ div.cop{
     width:50%;
     float:right;
 }
+.leftlog{
+    width:50%;
+    float:left;
+}
+.riglog{
+    width:50%;
+    float:left;
+}
+.border.log{
+    min-width: 50vw;
+
+}
