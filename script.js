@@ -207,8 +207,8 @@ function dragger(e){
     const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 const clientY = e.touches ? e.touches[0].clientY : e.clientY;
         if (clientX != 0 && clientY != 0){
-    e.currentTarget.parentElement.style.left = clientX - pos[0] + "px";
-    e.currentTarget.parentElement.style.top = clientY - pos[1] + "px";
+    e.currentTarget.parentElement.style.left = clientX - pos[0] + window.scrollX+ "px";
+    e.currentTarget.parentElement.style.top = clientY - pos[1] + window.scrollY+ "px";
 }
     if (e.type === "touchmove") e.preventDefault();
 }
@@ -364,5 +364,5 @@ addEventListener("touchmove", function (e) {dragger(e)});
 */
 
 function clearerer(){
-    localStorage.setItem("stare", JSON.stringify([{"Tue Mar 24 2024": 3}, {"Wed Mar 25 2024": 5}]));
+    localStorage.setItem("stare", JSON.stringify([{"Tue Mar 24 2024": 0}]));
 }
