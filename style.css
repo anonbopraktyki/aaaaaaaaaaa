@@ -4,6 +4,8 @@ body {
     font-family: "Comic Sans MS";
     width: 100vw;
     height: 100vh;
+    text-align: center;
+    overflow-x: hidden;
 }
 .border {
     background-color: white;
@@ -49,4 +51,15 @@ background: radial-gradient(rgba(255, 255, 255, 1) 20%, rgba(180, 180, 180, 1) 1
     0% {opacity: 100%}
     20% {opacity: 100%}
     100% {opacity: 0%}
+}
+.maxhe {
+    max-height: 40vh;
+}
+
+@media (max-width: 480px){
+    .border{
+                min-width:calc(10vw/3); 
+    min-height:5vh;
+    font-size: small;
+    }
 }
