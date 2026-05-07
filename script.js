@@ -200,127 +200,35 @@ const zadania = [
   "Clear a dungeon",
   "get cursed"
 ];
-const challenges = {
-  survival_basics: {
-    easy: [19, 21, 114],      // Craft, sit down, Drink water
-    medium: [20, 27, 59],     // Harvest, Light Furnace, Sleep through night
-    hard: [60, 63, 108],      // Machine craft, Plant tree, Automate
-    veryHard: 22              // Make 1,000,000$
-  },
-  combat_rank_1: {
-    easy: [6, 82, 84],        // Kill zombie, Punch, Get Shot
-    medium: [12, 17, 131],    // Sniper, kill person, kill streak
-    hard: [9, 28, 149],       // Dragon, Defeat Boss, hitless boss
-    veryHard: 104             // kill final boss
-  },
-  world_traveler: {
-    easy: [33, 66, 140],      // Find Frog, Ride boat, rooftop
-    medium: [0, 47, 154],     // Portal, moon, visit space
-    hard: [2, 185, 193],      // explore map, Cross map, hidden area
-    veryHard: 155             // command an army
-  },
-  gear_up: {
-    easy: [8, 48, 81],        // Helmet, shovel, Open chest
-    medium: [7, 37, 188],     // Upgrade, Build Turret, Use Shield
-    hard: [88, 115, 190],     // cosmetic, Full armour, one of a kind
-    veryHard: 189             // buy everything from shop
-  },
-  unfortunate_ends: {
-    easy: [1, 57, 113],       // kill self 5x, explode self, 1hp
-    medium: [64, 87, 119],    // Shoot self, Starve, Poisoned
-    hard: [83, 120, 125],     // exactly 1hp, Step on trap, 3 ways to die
-    veryHard: 61              // soft lock yourself
-  },
-  pure_chaos: {
-    easy: [36, 132, 138],     // Blow up Bomb, spend money, crash car
-    medium: [29, 68, 123],    // arson, Landmine, break limb
-    hard: [56, 124, 130],     // Glitch out, crash game, on fire
-    veryHard: 199             // get cursed
-  },
-  social_life: {
-    easy: [91, 146, 150],     // pet dog, bench, Emote
-    medium: [14, 44, 103],    // trade, Kill friendly, Name Pet
-    hard: [92, 181, 186],     // Voice Chat, Get married, Crime
-    veryHard: 178             // Hide in closet
-  },
-  agile_movement: {
-    easy: [5, 106, 172],      // jump cactuses, ladder, double jump
-    medium: [11, 40, 174],    // Jetpack, 1km, Jump moving obj
-    hard: [35, 38, 143],      // Backflip, Spaceship, fast travel
-    veryHard: 93              // Go Back in time
-  },
-  beast_master: {
-    easy: [10, 24, 147],      // Catch Fish, Get pet, cut tree
-    medium: [16, 116, 136],   // ride animal, Honey, Fight bird
-    hard: [71, 75, 160],      // Enslave, Dinosaur, non-fish
-    veryHard: 191             // Capture a creature
-  },
-  meta_gamer: {
-    easy: [49, 144, 145],     // use computer, phone call, skip cutscene
-    medium: [102, 127, 162],  // Fail Quest, touch grass, Ragdoll
-    hard: [51, 101, 196],     // Game in game, Reach credits, game deny
-    veryHard: 128             // hit world border
-  },
-  magic_arcana: {
-    easy: [31, 32, 86],       // Spell, Potion, Magic
-    medium: [45, 85, 156],    // Ghost, Draw Card, Transformation
-    hard: [157, 183, 194],    // waterfall, dimension, Find God
-    veryHard: 34              // Crossover event
-  },
-  competitive: {
-    easy: [50, 97, 107],      // Tunnel, Puzzle, Parry
-    medium: [25, 95, 161],    // Goal, Race lap, skillcheck
-    hard: [41, 46, 166],      // Battle Royale, 1v1, Roguelike
-    veryHard: 73              // perfect score
-  },
-  domestic_life: {
-    easy: [13, 77, 90],       // eat 10, Meal, flush toilet
-    medium: [26, 94, 98],     // Serve, picture, date
-    hard: [99, 175, 179],     // Dice, Book, trash can
-    veryHard: 52              // Complete side quest
-  },
-  inventory_management: {
-    easy: [79, 129, 173],     // fill inv, easter egg, break item
-    medium: [76, 122, 164],   // Take Limb, Paint, conveyor
-    hard: [53, 153, 165],     // pneumonoultra..., Q item, old age
-    veryHard: 167             // Jumpscare
-  },
-  shadow_work: {
-    easy: [15, 80, 177],      // Invisible, shirt off, bridge
-    medium: [110, 192, 198],  // save point, sea creature, dungeon
-    hard: [182, 133, 197],    // Assassinate, gambling, 10 silent
-    veryHard: 43              // Steal Treasure
-  },
-  interaction: {
-    easy: [3, 109, 142],      // find egg, Automate, teabag
-    medium: [117, 118, 111],  // taller, blinded, become intoxicated
-    hard: [70, 158, 159],     // wall, Glass, traffic
-    veryHard: 65              // Suffocate
-  },
-  builder: {
-    easy: [55, 141, 180],     // Campfire, Yo-Yo, Dig hole
-    medium: [67, 121, 134],   // Create Creature, Catch projectile, open door
-    hard: [72, 74, 163],      // trophy, pet kill, daily challenge
-    veryHard: 152             // labeled as rare
-  },
-  npc_encounters: {
-    easy: [18, 23, 151],      // kill person, Level Up, reflection
-    medium: [42, 62, 126],    // Instrument, wordle, Restore health
-    hard: [184, 195, 168],    // Thunderstorm, blood, double jump
-    veryHard: 54              // forest flight
-  },
-  progression: {
-    easy: [137, 139, 148],    // Pick up creature, crash car, electrocute self
-    medium: [100, 105, 135],  // Deal crit, Fall death, Fight bird
-    hard: [39, 169, 171],     // environment kill, break item, Hide closet
-    veryHard: 187             // Get 10,000 of something
-  },
-  settlement: {
-    easy: [4, 78, 176],       // win game, sliders, build bridge
-    medium: [58, 69, 89],     // kill 10 same, Escape Prison, lose gambling
-    hard: [30, 96, 170],      // build house, lap in race, jump moving obj
-    veryHard: 112             // Become intoxicated
-  }
+const categories = {
+  survival_basics: [19, 21, 114, 20, 27, 59, 60, 63, 108, 22],
+  combat_rank_1: [6, 82, 84, 12, 17, 131, 9, 28, 149, 104],
+  world_traveler: [33, 66, 140, 0, 47, 154, 2, 185, 193, 155],
+  gear_up: [8, 48, 81, 7, 37, 188, 88, 115, 190, 189],
+  unfortunate_ends: [1, 57, 113, 64, 87, 119, 83, 120, 125, 61],
+  pure_chaos: [36, 132, 138, 29, 68, 123, 56, 124, 130, 199],
+  social_life: [91, 146, 150, 14, 44, 103, 92, 181, 186, 178],
+  agile_movement: [5, 106, 172, 11, 40, 174, 35, 38, 143, 93],
+  beast_master: [10, 24, 147, 16, 116, 136, 71, 75, 160, 191],
+  meta_gamer: [49, 144, 145, 102, 127, 162, 51, 101, 196, 128],
+  magic_arcana: [31, 32, 86, 45, 85, 156, 157, 183, 194, 34],
+  competitive: [50, 97, 107, 25, 95, 161, 41, 46, 166, 73],
+  domestic_life: [13, 77, 90, 26, 94, 98, 99, 175, 179, 52],
+  inventory_management: [79, 129, 173, 76, 122, 164, 53, 153, 165, 167],
+  shadow_work: [15, 80, 177, 110, 192, 198, 182, 133, 197, 43],
+  interaction: [3, 109, 142, 117, 118, 111, 70, 158, 159, 65],
+  builder: [55, 141, 180, 67, 121, 134, 72, 74, 163, 152],
+  npc_encounters: [18, 23, 151, 42, 62, 126, 184, 195, 168, 54],
+  progression: [137, 139, 148, 100, 105, 135, 39, 169, 171, 187],
+  settlement: [4, 78, 176, 58, 69, 89, 30, 96, 170, 112]
+};
+
+// Table 2: Challenges grouped by Difficulty
+const difficulties = {
+  easy: [19, 21, 114, 6, 82, 84, 33, 66, 140, 8, 48, 81, 1, 57, 113, 36, 132, 138, 91, 146, 150, 5, 106, 172, 10, 24, 147, 49, 144, 145, 31, 32, 86, 50, 97, 107, 13, 77, 90, 79, 129, 173, 15, 80, 177, 3, 109, 142, 55, 141, 180, 18, 23, 151, 137, 139, 148, 4, 78, 176],
+  medium: [20, 27, 59, 12, 17, 131, 0, 47, 154, 7, 37, 188, 64, 87, 119, 29, 68, 123, 14, 44, 103, 11, 40, 174, 16, 116, 136, 102, 127, 162, 45, 85, 156, 25, 95, 161, 26, 94, 98, 76, 122, 164, 110, 192, 198, 117, 118, 111, 67, 121, 134, 42, 62, 126, 100, 105, 135, 58, 69, 89],
+  hard: [60, 63, 108, 9, 28, 149, 2, 185, 193, 88, 115, 190, 83, 120, 125, 56, 124, 130, 92, 181, 186, 35, 38, 143, 71, 75, 160, 51, 101, 196, 157, 183, 194, 41, 46, 166, 99, 175, 179, 53, 153, 165, 182, 133, 197, 70, 158, 159, 72, 74, 163, 184, 195, 168, 39, 169, 171, 30, 96, 170],
+  veryHard: [22, 104, 155, 189, 61, 199, 178, 93, 191, 128, 34, 73, 52, 167, 43, 65, 152, 54, 187, 112]
 };
 //fake window
 /** @param {DragEvent} e */
