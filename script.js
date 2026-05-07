@@ -298,7 +298,7 @@ for (let i = 0; i < 41; i++) {
                 break;}
             }
                             har.innerHTML = "<h2 onclick='pojkdfg(event)'>" + har.innerHTML + "</h2>";
-                robione.push(zadania.indexOf(har.innerHTML));
+                robione.push(zadania.indexOf(har.querySelector('h2').innerHTML));
                 bsdf(zadanie);
         }
     }, b * i);
