@@ -266,11 +266,16 @@ var zrobione = [];
 var rolling = false;
 function funkcjazadan(wopwomp = 0, e = "asdf"){
     if (rolling) return;
-    if (wopwomp != 0) return;
+    if (wopwomp ==1 ) return;
     if (robione.length + zrobione.length >= zadania.length) {
-        document.getElementById("hed").innerHTML = "to sa juz wszystkie zadania";
+        document.getElementById("heddfg").innerHTML = "to sa juz wszystkie zadania";
         return;
     } 
+    var roller = function() {return zadania[Math.floor(Math.random() * zadania.length)];};
+    var cat = document.getElementById("catg").value;
+    if ( cat != -1){
+        roller = function() {return zadania[Object.values(categories)[cat][Math.floor(Math.random() * Object.values(categories)[cat].length)]]};
+    }
     rolling = true;
  var zadanie = clone();
 zadanie.innerHTML = zadanie.innerHTML.replace("<qwer>", "co bedzie?");
@@ -279,12 +284,20 @@ var b = 0;
 for (let i = 0; i < 41; i++) {
     setTimeout(() => {
         var asdfg = zadanie.getBoundingClientRect().left + (zadanie.getBoundingClientRect().width / 2);
-        har.innerHTML = zadania[Math.floor(Math.random() * zadania.length)];
+        har.innerHTML = roller();
         zadanie.style.left =  asdfg - (zadanie.getBoundingClientRect().width / 2) + "px";
         if (i == 40) {
             while (robione.includes(zadania.indexOf(har.innerHTML))){
-                har.innerHTML = zadania[Math.floor(Math.random() * zadania.length)];
+                har.innerHTML = roller();
+                i++;
+                if (i > 10000) {document.getElementById("heddfg").innerHTML = "to sa juz wszystkie zadania";
+                    setTimeout(() => {
+                        document.getElementById("heddfg").innerHTML = "HISTORIA";
+                    }, 2000);
+                                            zadanie.remove();
+                break;}
             }
+                            har.innerHTML = "<h2 onclick='pojkdfg(event)'>" + har.innerHTML + "</h2>";
                 robione.push(zadania.indexOf(har.innerHTML));
                 bsdf(zadanie);
         }
@@ -294,6 +307,7 @@ for (let i = 0; i < 41; i++) {
         if (i == 40) b *= 2;
 }
 }
+
 /** @param {HTMLElement} zadanie */
 function bsdf(zadanie){
 rolling = false;
@@ -306,29 +320,29 @@ var hbgf;
 var f;
     /** @param {MouseEvent} e */
 function przejscie(e) {
+    if (faravol != null) return;
     if (fgh == true && e.currentTarget.innerHTML == "🎉wooo🎉"){
  e.currentTarget.innerHTML = "zakoncz zadanie";
- e.currentTarget.parentElement.querySelector('h1').style.color = "black";
- e.currentTarget.parentElement.querySelector('h1').style.textDecoration = "none";
+ e.currentTarget.parentElement.querySelector('h2').style.color = "black";
+ e.currentTarget.parentElement.querySelector('h2').style.textDecoration = "none";
   e.currentTarget.parentElement.style.animationName= "none";
 fgh = false;
 clearTimeout(hbgf);
     }
     else if (fgh == false){
-        console.log(e.currentTarget);
  e.currentTarget.innerHTML = "🎉wooo🎉";
- e.currentTarget.parentElement.querySelector('h1').style.color = "green";
- e.currentTarget.parentElement.querySelector('h1').style.textDecoration = "underline";
+ e.currentTarget.parentElement.querySelector('h2').style.color = "green";
+ e.currentTarget.parentElement.querySelector('h2').style.textDecoration = "underline";
  e.currentTarget.parentElement.style.animationName = "opacity";
  fgh = true;
  f = e.currentTarget;
  hbgf = setTimeout(() => {
-    zrobione.push(zadania.indexOf( f.parentElement.querySelector('h1').innerHTML));
+    zrobione.push(zadania.indexOf( f.parentElement.querySelector('h2').innerHTML));
     localStorage.setItem("zrobione", JSON.stringify(zrobione));
-    robione.splice(robione.indexOf( f.parentElement.querySelector('h1').innerHTML), 1);
+    robione.splice(robione.indexOf( f.parentElement.querySelector('h2').innerHTML), 1);
     f.parentElement.remove();
     fgh = false;
- }, .000);
+ }, 3000);
 }}
 
 
@@ -363,7 +377,6 @@ function log(){
 function historia(e, state) {
     var hist = clone();
     hist.innerHTML = hist.innerHTML.replace('<center><h1 style="user-select: none;">WYLOSUJ ZADANIE</h1></center>', "<qthy style='user-select: none; height: 35vh; display:block; overflow-y: scroll;'></qthy>");
-        console.log(hist.innerHTML);
         hist.onclick = function() {};
         hist.querySelector('div').onclick = function() { closer(event)};
         hist.classList += " maxhe";
@@ -393,7 +406,6 @@ function closer(e) {
 // addEventListener("touchmove", function (e) {dragger(e)});
 
 function clearerer(){
-    console.log(localStorage.getItem("stare"));
     localStorage.setItem("stare", JSON.stringify([{"Tue Mar 24 2024": 0}]));
 }
 
@@ -406,7 +418,6 @@ else{ document.getElementById("pass1").type = "password";
 }
 function asign(){
     var b = [document.getElementById("fname").value, document.getElementById("lname").value, document.getElementById("email").value, document.getElementById("pass1").value, document.getElementById("pass2").value];
-   console.log(b);
     if (b[0] != '' && b[1] != '' && b[2] != '' && b[3] != '' && b[4] != ''){
     if (b[3] == b[4]){
 window.location.href = 'Untitled-1.html';
@@ -425,4 +436,21 @@ function asddfg(){
     console.log(stare);
     console.log(zrobione);
     console.log(localStorage.getItem("stare"));
+}
+var faravol;
+function pojkdfg(e){
+    if (faravol != null) return;
+            faravol = e.currentTarget;
+        var fgh = faravol.innerHTML;
+        faravol.innerHTML = Object.entries(difficulties).find(([names, ids]) => ids.includes(zadania.indexOf(faravol.innerHTML)))[0];
+
+        if (faravol.innerHTML == "easy") faravol.style.color = "#90EE90";
+                if (faravol.innerHTML == "medium") faravol.style.color = "#FFA500";
+                        if (faravol.innerHTML == "hard") faravol.style.color = "#FF0000";
+                                if (faravol.innerHTML == "veryHard") faravol.style.color = "#6f2da8";
+        setTimeout(() => {
+            faravol.innerHTML = fgh;
+            faravol.style.color = "black";
+            faravol = null;
+        }, 2000);
 }
